@@ -1,0 +1,178 @@
+/* Welcome to Compass. Use this file to define print styles.
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
+/* This is a class in h5bp that hides elements but keeps them 
+   accessible to screen readers, packaged as a mixin: */
+* {
+  background: transparent;
+  color: black;
+  text-shadow: none;
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  font: 12pt Georgia, "Times New Roman", Times, serif;
+  line-height: 1.3;
+  color: #000;
+}
+
+h1 {
+  font-size: 20pt;
+}
+
+h2 {
+  font-size: 16pt;
+  margin: 15px 0 5px 0;
+  padding: 0 0 3px 0;
+  border-bottom: 1px solid #eeeeee;
+}
+
+h3 {
+  color: #333333;
+  margin-top: 10px;
+}
+
+a[href]::after,
+a[href^="#"]:after {
+  display: none;
+}
+
+a {
+  color: #cccccc;
+  font-style: italic;
+}
+
+#block-system-main-menu,
+#block-block-91,
+#block-block-66,
+#block-block-71,
+#block-menu-menu-campus-tools,
+#block-menu-menu-department-menu,
+#block-menu-menu-user-menu-quicklinks,
+.tabs-container,
+.share-holder,
+.field-type-image,
+#sidebar-first,
+#block-masquerade-masquerade,
+#footer .row,
+#footer .footer-block,
+#block-berklee-info-block-berklee-info-block,
+#sidebar-second,
+.views-field-view-node,
+.page-slideshow,
+.messages,
+#skip-link,
+#block-search-form {
+  display: none;
+}
+
+.row {
+  clear: both;
+}
+
+#page {
+  margin-top: 140px;
+}
+
+ol, ul {
+  list-style-type: square;
+}
+
+article.container,
+body.two-sidebars #page-content {
+  margin: 0 0 0 30px;
+  padding-top: 0;
+  width: 95%;
+}
+
+section.region-header .container {
+  margin: 0 0 0 30px;
+  width: 95%;
+}
+
+section.region-header,
+section.region-header:before {
+  margin: 0;
+  height: 0;
+}
+
+#page-content iframe,
+#page-content object {
+  display: none;
+}
+
+.block .news-events-style:not(.no-images) .view-content p, .block .news-events-style:not(.no-images) .view-content h3, .block .peeps:not(.no-images) .view-content p, .block .peeps:not(.no-images) .view-content h3, .block .peeps-style:not(.no-images) .view-content p, .block .peeps-style:not(.no-images) .view-content h3, .block .announcements-style:not(.no-images) .view-content p, .block .announcements-style:not(.no-images) .view-content h3 {
+  margin-left: 0;
+}
+
+.not-front:not(.node-type-landing-page) .region-content .block:not(#block-system-main):not(.style-exempt):not(#block-berklee-site-section-announcements),
+.not-front:not(.node-type-landing-page) .region-content .block:not(#block-system-main):not(.style-exempt):not(#block-berklee-site-section-announcements) .content,
+.not-front:not(.node-type-landing-page) .region-content .block:not(#block-system-main):not(.style-exempt):not(#block-berklee-site-section-announcements) > h3 {
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
+.block,
+#footer,
+.region-footer,
+.region-header,
+.region-header:before {
+  background-image: none;
+  background-color: #fff;
+  box-shadow: none;
+}
+
+#footer:before {
+  display: block;
+  content: "Thank you for visiting Berklee College of Music at www.berklee.edu";
+  font-size: 10px;
+  font-style: italic;
+  margin: 10px 40px;
+}
+
+.container {
+  width: 100%;
+}
+
+#logo img {
+  width: 144px;
+}
+
+.page-directory-print .region-content table {
+  table-layout: auto;
+}
+.page-directory-print .region-content table td {
+  padding: 1px 3px;
+}
+.page-directory-print .region-content table tr {
+  background: transparent;
+}
+.page-directory-print .region-content table tr:nth-child(even) {
+  background: #fafafa !important;
+}
+.page-directory-print .region-content table th {
+  text-align: center;
+}
+.page-directory-print .region-content .phone, .page-directory-print .region-content .fax {
+  white-space: nowrap;
+}
+.page-directory-print .region-content .phone:before, .page-directory-print .region-content .fax:before {
+  margin-right: 6px;
+}
+.page-directory-print .region-content .phone:before {
+  color: #cfd5d5;
+  font-family: FontAwesome;
+  opacity: 1;
+  content: "\f095";
+}
+.page-directory-print .region-content .fax:before {
+  color: #cfd5d5;
+  font-family: FontAwesome;
+  opacity: 1;
+  content: "\f02f";
+}

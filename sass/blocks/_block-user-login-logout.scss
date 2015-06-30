@@ -1,0 +1,91 @@
+.region-header .top-bar-block {
+  position: relative;
+  .content {
+    a, span {
+      @include text-shadow(1px 1px 1px rgba(0, 0, 0, 0.5) );
+      color: #eee;
+      display: block;
+      float: right;
+      font-size: 12px;
+      line-height: 1.4em;
+      padding: 10px 0;
+      text-align: center;
+      text-transform: uppercase;
+      @media #{$m} {
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+h3.login {
+  font-size: 1.1em;
+  font-family: $body;
+  height: 35px;
+  line-height: 28px;
+  margin-right: 1em;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.user-login-logout {
+  position: relative;
+}
+#login-options {  
+  @include transition(opacity 0.4s ease);
+  @media #{$not-small} {
+    background: #f2f2f2;
+    border-radius: 0 0 5px 5px;
+    border: 2px solid #dedede;
+    left: -10px;
+    position: absolute;
+    top: 35px;
+    width: 200px;
+  }
+  &:not(.visible) {
+    @include visuallyhidden();
+    opacity: 0;
+  }
+  a {
+    @include transition(all 0.2s ease);
+    box-sizing: border-box;
+    display: block;
+    padding: 0.2em 0.5em;
+    width: 100%;
+    color: #666;
+    font-size: 13px;
+    font-family: $headline-light;
+    line-height: normal;
+    margin: 0.5em 0;
+    &:not(:last-child) {
+      border-bottom: 1px solid #ddd;
+    }
+    &:hover, &.highlight {
+      color: $berklee-red;
+    }
+    .description {
+      display: block;
+      line-height: normal;
+      font-size: 11px;
+      font-family: $body;
+      color: #999;
+      margin: -0.3em 0 0.66em;
+    }
+  }
+  &:after {
+    @include transform( rotate(45deg) );
+    background: #f2f2f2;
+    border: 2px solid #dedede;
+    border-bottom-width: 0;
+    border-right-width: 0;
+    content: '';
+    height: 15px;
+    left: 20px;
+    position: absolute;
+    top: -10px;
+    width: 15px;
+  }
+} 
+
+.logged-in .user-login-logout .login { display: none; }
+.not-logged-in .user-login-logout .logout { display: none; }

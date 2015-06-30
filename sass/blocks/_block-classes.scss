@@ -1,0 +1,304 @@
+.dark-gray-bg, .gray-bg {
+  background: #353535;
+  @include background( #353535 linear-gradient(left center , #353535 0%, #3D3D3D 29%, #4D4D4D 68%, #585657 100%) repeat );
+  h3 {
+    color: $light-gray;
+  }
+}
+
+.light-gray-bg, .background-transparent-gray {
+  //@include background( #353535 linear-gradient(left center , #353535 0%, #3D3D3D 29%, #4D4D4D 68%, #585657 100%) repeat ); 
+  background: #ccc; // IE
+  background: rgba(255, 255, 255, 0.73);
+}
+
+.light-gray-text {
+  color: $light-gray;
+}
+
+.background-berklee-red {
+  background-color: $berklee-red;
+}
+
+@for $i from 0 through 19 {
+  .opacity-#{$i * 5} {
+    opacity: $i / 20;
+  }
+}
+
+.clearfix {
+  @include clearfix();
+}
+
+.float-contents {
+  div, a, span {
+    float: left;
+  }
+  padding: 5px 10px;
+  @include border-radius(5px);
+}
+
+.transparent-gray-bg {
+  background: #aaa; // IE
+  background: rgba(22, 22, 22, 0.4);
+}
+
+.not-front:not(.node-type-landing-page) .region-content .block:not(#block-system-main):not(.style-exempt):not(#block-berklee-site-section-announcements) {
+  @include grayBox();
+  .content {
+    padding: 10px;
+  }
+  p {
+    font-size: 13px;
+  }
+}
+
+.region-content .collapsible {
+  h3 {
+    position: relative;
+    &:after {
+      position: relative;
+      margin-left: 10px;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &.collapsed {
+    h3 {
+      position: relative;
+      &:after {
+        @include icon('icon-expand-alt');
+        position: relative;
+      }
+    }
+  }
+  &.expanded {
+    h3 {
+      position: relative;
+      &:after {
+        @include icon('icon-collapse-alt');
+        position: relative;
+      }
+    }
+  }
+}
+
+ul.collapsed {
+  
+}
+
+.region-sidebar-second .collapsible, .region-sidebar-first .collapsible {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  > h3 {
+    position: relative;
+    z-index: 2;
+    &:hover {
+      cursor: pointer;
+      color: black !important;
+      &:after {
+        color: $berklee-red;
+      }
+    }
+  }
+  &.collapsed:after {
+    @include icon('icon-expand-alt');
+  }
+  &.expanded:after {
+    @include icon('icon-collapse-alt');
+  }
+  &.collapsed:after, &.expanded:after {
+    top: 22px;
+    right: 15px;
+    font-size: 27px;
+    position: absolute;
+    line-height: 0;
+    color: #ccc;
+  }
+  /*.contextual-links-wrapper {
+    right: 30px;
+  }*/
+}
+
+.region-sidebar-first .collapsible {
+  &.collapsed:after, &.expanded:after {
+    top: 16px;
+    right: 0;
+  }
+}
+
+// move to lists file:
+div.expand {
+  color: #666;
+  font-style: italic;
+  &:hover {
+    color: #333;
+    cursor: pointer;
+  }
+}
+
+.berklee-gridblock {
+  @include box-shadow(2px 2px 10px #eee);
+  @include border-radius(3px);
+  @include box-sizing('border-box');
+  border: 1px solid #eee;
+  display: block;
+  float: left;
+  height: 150px;
+  margin: 1%;
+  padding: 8px;
+  position: relative;
+  width: 31%;
+  @media #{$s} {
+    width: 100%;
+  }
+  &.card {    
+    img {
+      opacity: 0;
+      @include transition(all 0.6s ease);
+    }
+    @include transition(transform 0.5s ease);
+    .card-back {
+      @include box-sizing(border-box);
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      right: 100%;
+      padding: 8px;
+      z-index: -1;
+      background: rgba(0,0,0,0.8);
+      p {
+        font-size: 12px;
+        line-height: 1.4em;
+      }
+      h3,h4,h5 {
+        font-size: 14px;
+      }
+    }
+    &:hover {
+      .gridblock-title a {
+        color: transparent !important;
+        @include text-shadow(none);
+      }
+      .card-back {
+        right: 0%;
+      }
+    }
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+
+@for $i from 1 through 6 {
+  @media #{$not-small} {
+    .berklee-grid.columns-#{$i} .berklee-gridblock { 
+      width: (100% - ($i * 2)) * (1 / $i); 
+    }  
+  }
+}
+
+.berklee-grid.image-background {
+  .berklee-gridblock {
+    @include text-shadow(1px 1px 1px black);
+    background: rgba(0,0,0,0.4);
+    color: white;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    &:hover {
+      background: rgba(0,0,0,0.2);
+    }
+    .gridblock-title {
+      padding: 10px;
+      a {
+        @include box-sizing(border-box);
+        color: white;
+        display: block;
+        height: 100%;
+        margin: -10px 0 0 -10px;
+        padding: 10px;
+        position: absolute;
+        width: 100%;
+        &:hover {
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+    img {
+      height: 100%;
+      left: 0;
+      margin: 0;
+      max-width: none;
+      padding: 0;
+      position: absolute;
+      top: 0;
+      width: auto;
+      z-index: -2;
+      @media #{$s} {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  
+}
+
+.hide-title > h3 {
+  display: none;
+}
+
+.region-sidebar-second .icon-button {
+  color: black;
+  display: block;
+  font-family: $headline-light;
+  margin-left: 25px;
+  font-size: 20px;
+  text-transform: uppercase;
+  &:hover {
+    color: $berklee-red;
+  }
+  &:before {
+    color: $berklee-red;
+    display: inline-block;
+    float: left;
+    font-family: FontAwesome;
+    font-size: 16px;
+    margin-left: -25px;
+    text-decoration: none;
+  }
+  &.icon-ticket {
+    &:before {
+      font-size: 18px;
+    }
+  }
+}
+
+.social-media-link-box {
+  a {
+    font-size: 20px;
+    margin-right: 2%;
+    &:hover {
+      text-decoration: none;
+    }
+    &:before {
+      text-decoration: none;
+    }
+    &.icon-facebook {
+      color: #3B5998;
+    }
+    &.icon-twitter {
+      color: #4099FF;
+    }
+    &.icon-instagram {
+      color: #B38C6B;
+    }
+  }
+}

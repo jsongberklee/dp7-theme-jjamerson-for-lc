@@ -1,0 +1,299 @@
+/* This is a class in h5bp that hides elements but keeps them 
+   accessible to screen readers, packaged as a mixin: */
+@mixin visuallyhidden($focusable: 'false') {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    /* Not focusable by default, so that keyboard junkies don't focus on
+       invisible elements. But on the off chance that the element should be
+       focusable: */
+    @if ($focusable != 'false') { 
+      &:active, &:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto;
+      }
+    }
+}
+
+@mixin button() {
+  @include border-radius(2px);
+  background: $berklee-red;
+  border: none;
+  color: #eee;
+  display: block;
+  font-family: $headline;
+  margin: 10px 0;
+  padding: 6px 14px;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@mixin dottedBorder() {
+  border-bottom: 1px dotted #999;
+  border-top: 1px dotted #999;
+  content: '';
+  display: block;
+  height: 3px;
+  width: 100%;
+}
+
+@mixin grayBox() {
+  background: $berklee-gray;
+  margin-bottom: 20px;
+  > h3 {
+    font-size: 21px;
+    padding: 10px 10px 0;
+    &:after {
+      @include dottedBorder();
+    }
+  }
+}
+
+@mixin grayscale($amount: 1) {
+  -webkit-filter: grayscale($amount); /* Google Chrome & Safari 6+ */
+  @if ($amount == 1) {
+    //filter: url(filters.svg#grayscale); /* Firefox 3.5+ */ 
+    filter: gray; /* IE6-9 */
+  } @else {
+    filter: none;
+  }
+}
+
+@mixin icon($name, $color: #888, $opacity: 1) {
+  color: #{$color};
+  font-family: FontAwesome;
+  opacity: #{$opacity};
+  @if ($name == 'arrow-right') {
+    content: "\f061";
+  } @else if ($name == 'icon-asterisk') {
+    content: "\f069";
+  } @else if ($name == 'icon-blank') {
+    content: "\f0c8";  
+  } @else if ($name == 'icon-calendar') {
+    content: "\f073";
+  } @else if ($name == 'icon-caret-down') {
+    content: "\f0d7";
+  } @else if ($name == 'icon-caret-up') {
+    content: "\f0d8";
+  } @else if ($name == 'icon-caret-square-up') {
+    content: "\f151";
+  } @else if ($name == 'icon-check') {
+    content: "\f046";
+  } @else if ($name == 'icon-check-empty') {
+    content: "\f096";
+  } @else if ($name == 'icon-check-sign') {
+    content: "\f14a";    
+  } @else if ($name == 'icon-check-square') {
+    content: "\f14a";      
+  } @else if ($name == 'icon-chevron-down') {
+    content: "\f078";
+  } @else if ($name == 'icon-chevron-left') {
+    content: "\f053";   
+  } @else if ($name == 'icon-chevron-right') {
+    content: "\f054";   
+  } @else if ($name == 'icon-chevron-circle-right') {
+    content: "\f138";   
+  } @else if ($name == 'icon-chevron-up') {
+    content: "\f077";            
+  } @else if ($name == 'icon-collapse-alt') {
+    content: "\f147";
+  } @else if ($name == 'icon-comments-o') {
+    content: "\f0e5";    
+  } @else if ($name == 'icon-dashboard') {
+    content: "\f0e4";
+  } @else if ($name == 'icon-edit') {
+    content: "\f044";
+  } @else if ($name == 'icon-edit-sign') {
+    content: "\f14b";
+  } @else if ($name == 'icon-envelope') {
+    content: "\f0e0";  
+  } @else if ($name == 'icon-exclamation') {
+    content: "\f12a";
+  } @else if ($name == 'icon-exclamation-sign') {
+    content: "\f06a";
+  } @else if ($name == 'icon-expand-alt') {
+    content: "\f196";
+  } @else if ($name == 'icon-external-link') {
+    content: "\f08e";
+  } @else if ($name == 'icon-eye-slash') {
+    content: "\f070";
+  } @else if ($name == 'icon-facebook') {
+    content: "\f09a";
+  } @else if ($name == 'icon-facebook-sign') {
+    content: "\f082";
+  } @else if ($name == 'icon-file') {
+    content: "\f15b";
+  } @else if ($name == 'icon-file-text') {
+    content: "\f15c";
+  } @else if ($name == 'icon-flickr') {
+    content: "\f16e";
+  } @else if ($name == 'icon-food') {
+    content: "\f0f5";
+  } @else if ($name == 'icon-info') {
+    content: "\f129";
+  } @else if ($name == 'icon-info-sign') {
+    content: "\f05a";
+  } @else if ($name == 'icon-instagram') {
+    content: "\f16d";
+  } @else if ($name == 'icon-level-down') {
+    content: "\f149";
+  } @else if ($name == 'icon-level-up') {
+    content: "\f148";
+  } @else if ($name == 'icon-lock') {
+    content: "\f023";  
+  } @else if ($name == 'icon-map-marker') {
+    content: "\f041";  
+  } @else if ($name == 'icon-pencil') {
+    content: "\f040";  
+  } @else if ($name == 'icon-pencil-square') {
+    content: "\f14b";  
+  } @else if ($name == 'icon-pencil-square-o') {
+    content: "\f044";  
+  } @else if ($name == 'icon-phone') {
+    content: "\f095";  
+  } @else if ($name == 'icon-pinterest') {
+    content: "\f0d2";  
+  } @else if ($name == 'icon-play') {
+    content: "\f04b";  
+  } @else if ($name == 'icon-plus') {
+    content: "\f067";
+  } @else if ($name == 'icon-print') {
+    content: "\f02f";
+  } @else if ($name == 'icon-question-circle') {
+    content: "\f059";  
+  } @else if ($name == 'icon-reorder') {
+    content: "\f0c9";  
+  } @else if ($name == 'icon-rss') {
+    content: "\f09e";
+  } @else if ($name == 'icon-rss-sign') {
+    content: "\f143";  
+  } @else if ($name == 'icon-search') {
+    content: "\f002";
+  } @else if ($name == 'icon-sort') {
+    content: "\f0dc";
+  } @else if ($name == 'icon-sort-asc') {
+    content: "\f0de";
+  } @else if ($name == 'icon-sort-desc') {
+    content: "\f0dd";          
+  } @else if ($name == 'icon-soundcloud') {
+    content: "\f1be";       
+  } @else if ($name == 'icon-remove-circle') {
+    content: "\f05c";    
+  } @else if ($name == 'icon-thumbs-o-up') {
+    content: "\f087";
+  } @else if ($name == 'icon-train') {
+    content: "\f1b9";
+  } @else if ($name == 'icon-tumblr') {
+    content: "\f173";
+  } @else if ($name == 'icon-twitter') {
+    content: "\f099";
+  } @else if ($name == 'icon-twitter-sign') {
+    content: "\f081";
+  } @else if ($name == 'icon-youtube') {
+    content: "\f167";
+  } @else if ($name == 'icon-youtube-play') {
+    content: "\f16a";  
+  } @else if ($name == 'icon-warning-sign') {
+    content: "\f071";
+  } @else if ($name == 'icon-wrench') {
+    content: "\f0ad";
+  }
+
+}
+
+@mixin moreButton() {
+  color: #5b5b5b;
+  float: right;
+  font-family: $headline;
+  font-size: 14px;
+  position: relative;
+  text-transform: uppercase;
+  &:after {
+    @include icon('icon-chevron-circle-right');
+    color: #5b5b5b;
+    font-size: 14px;
+    margin-left: 5px;
+    display: inline-block;
+  }
+}
+
+@mixin setPageWidth() {
+  @media #{$xl} {
+    width: $xl-width;
+  }
+  @media #{$l} {
+    width: $l-width;
+  }
+  @media #{$m} {
+    width: $m-width;
+  }
+  @media #{$s} {
+    width: 100%;
+  }
+}
+
+@mixin span($whatwhat) {
+  float: left;
+  min-height: 1px;
+  @media #{$xl} { 
+    margin-left: 30px;
+    width: ( ( ($whatwhat - 1) * 100 ) + 70) + px; 
+  }
+  @media #{$l} { 
+    margin-left: 20px;
+    width: ( ( ($whatwhat - 1) * 80 ) + 60) + px; 
+  }
+  @media #{$m} { 
+    margin-left: 20px;
+    width: ( ( ($whatwhat - 1) * 62 ) + 42) + px; 
+  }
+  @media #{$s} {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@mixin externalLinkIcon() {
+  target-name: new;
+  target-new: tab;
+  target-position: above;
+  margin-right: 0px;
+  position: relative;
+  &:hover:after {
+    opacity: 1;
+  }
+  &:after {
+    @include icon('icon-external-link', #aaa, 0.5);
+    @include transition(opacity 0.2s);
+    content: '\f08e   off-site link';
+    display: block;
+    background: white;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    font-size: 9px;
+    line-height: 14px;
+    margin-left: 0;
+    min-width: 57px;
+    opacity: 0;
+    padding: 0 3px;
+    position: absolute;
+    right: -14px;
+    top: -11px;
+    @media #{$s} {
+      font-size: 14px;
+      padding: 4px;
+      top: -18px;
+      min-width: 88px;
+    }
+  }
+}

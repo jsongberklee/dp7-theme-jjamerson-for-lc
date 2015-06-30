@@ -1,0 +1,909 @@
+html, body {
+  @include transition(all 0.2s);
+  @media #{$s} {
+    width: 100%;
+  }
+}
+
+body {
+  @include transition(all 0.5s);
+  color: rgb(80,83,75);
+  font-family: $body;
+  font-size: 14px;
+  line-height: 1.4em;
+  @media #{$s} {
+    /*overriding bootstrap */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  a, div, p, input {
+    @include transition(all 0.2s);
+    &:hover {
+      @include transition(all 0.2s);
+    }
+  }
+  em, i {
+    font-family: $body-italic;
+    & strong, & b {
+      font-family: $body-bold-italic;
+    }
+  }
+  strong, b {
+    font-family: $body-bold;
+    & em, & i {
+      font-family: $body-bold-italic;
+    }
+  }
+}
+
+header, footer, nav, section, article {
+  display: block;
+  @include box-sizing(border-box);
+}
+
+/* Main page container. Only page_top and page_bottom are outside of it,
+   since they should span the full width of the page */
+.container {
+  margin: auto;
+}
+
+/* All links */
+a {
+  color: $berklee-red;
+  text-decoration: none;
+  &:hover, &:focus {
+    color: $berklee-red;
+    text-decoration: underline;
+  }
+}
+
+a:focus {
+  /* display: block; */
+}
+
+a.element-invisible.element-focusable:focus {
+  @include border-radius(0 0 5px 0);
+  background: #555;
+  color: white;
+  font-size: 14px;
+  left: 10px;
+  padding: 10px;
+  top: 10px;
+}
+
+#skip-link li {
+  position: absolute;
+  z-index: 100000;
+}
+
+div {
+  @include box-sizing(border-box);
+}
+
+/* All headings */
+#{headings()} {
+  font-family: $headline-bold;
+  line-height: 1.4em;
+}
+
+// http://www.youtube.com/watch?v=8DoARSlv-HU
+h1 {
+  font-size: 32px;
+  @media #{$s} {
+    font-size: 22px;
+  }
+}
+h2 {
+  font-size: 28px;
+  @media #{$s} {
+    font-size: 20px;
+  }
+}
+h3 {
+  font-size: 18px;
+}
+h4, h5, h6 {
+  font-size: 15px;
+}
+
+hr {
+  clear: both;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.4em;
+}
+
+strong {
+  font-weight: bold;
+}
+
+input {
+  @include transition(all 0.5s);
+}
+
+// Disable the pre tag, since it's typically an unwanted remnant of copy+paste operations
+pre {
+  display: inherit;
+  font-family: inherit;
+  white-space: inherit;
+  margin: inherit;
+}
+
+.visually-hidden, .visuallyhidden {
+  @include visuallyhidden();
+}
+
+.hidden {
+  display: none;
+}
+
+.icon {
+  font-family: $icon-font;
+}
+
+#page {
+  clear: both;
+  margin-top: 22px;
+  overflow: hidden;
+  @media #{$s} {
+    margin: 54px 0px 0;
+    overflow: hidden;
+  }
+}
+
+.admin-menu #page {
+  @media #{$s} {
+    margin-top: 25px;
+  }
+}
+
+.messages {
+  @include border-radius(4px);
+  background: #ddd;
+  //margin: -25px 0 25px;
+  padding: 5px;
+  margin: 0 5% 25px;
+  &, pre {
+    @include text-shadow(1px 1px 1px white);
+    color: #555;
+    font-size: 13px;
+  }
+  ul {
+    background: #ddd;
+    margin-top: -16px;
+    position: relative;
+    z-index: 1;
+  }
+  li {
+    &:not(:last-child) {
+      border-bottom: 1px dotted #aaa;
+    }
+    padding: 5px;
+    &:before {
+      @include text-shadow(1px 1px 1px white);
+      display: block;
+      float: left;
+      margin-right: 5px;
+      text-align: center;
+      width: 20px;
+    }
+  }
+  &.error {
+    li:before, &:before {
+      @include icon('icon-warning-sign', $berklee-red);
+    }
+  }
+  &.warning {
+    li:before, &:before {
+      @include icon('icon-info-sign', #fa0);
+    }
+  }
+  &.status {
+    li:before, &:before {
+      @include icon('icon-asterisk', #444);
+    }
+  }
+}
+#page-content {
+  overflow: hidden;
+}
+
+body.two-sidebars #page-content {
+  //@include span(6.5);
+  @media #{$not-small} {
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 44%;
+    @include box-sizing(border-box);
+    float: left;
+  }
+}
+body.one-sidebar.sidebar-first #page-content {
+  @media #{$not-small} {
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 69%;
+    @include box-sizing(border-box);
+    float: left;
+  }
+}
+body.one-sidebar.sidebar-second #page-content {
+  @include span(9);
+}
+body.no-sidebars #page-content {
+  margin-left: 5%;
+  margin-right: 5%;
+  @media #{$s} {
+    margin-left: 0;
+  }
+}
+
+
+a.all,
+.more-link a,
+a.more,
+a.read-more,
+a.views-more-link {
+  margin: 7px 0 0;
+  padding: 1px 10px 1px 6px;
+  text-align: center;
+}
+
+a.all, .more-link a {
+  @include border-radius(4px);
+  //@include text-shadow(0 -1px 1px #fff);
+  @include clearfix();
+  background: #e1e1e1;
+  color: #596776;
+  float: right;
+  //font-family: $headline-bold;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 10;
+  &:after {
+    @include icon('arrow-right', #aaa, 0.7);
+    padding-left: 5px;
+  }
+}
+
+a.more,
+a.read-more,
+a.views-more-link {
+  color: $berklee-red;
+  /*
+  &:after {
+    @include icon('arrow-right', $berklee-red, 0.7);
+    padding-left: 5px;
+  }*/
+}
+
+.more-link {
+  height: 28px;
+}
+
+.tabs, .quicktabs-tabs, .tabset {
+  height: 27px;
+  padding-left: 5%;
+  padding-top: 5px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  background: #333;
+  @include box-shadow(inset 0 0 20px black);
+  position: relative;
+  &:hover, &:focus {
+    opacity: 1;
+  }
+  &:after {
+    //@include box-shadow(0 -2px 6px #ddd);
+    background: #eee;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 1px;
+    position: absolute;
+    width: 100%;
+  }
+  li {
+    float: left;
+    a {
+      @include border-radius(5px 0px 0 0);
+      //@include box-shadow(-3px -2px 5px #eee);
+      background: #444;
+      border-bottom: none;
+      border-left-color: #bbb;
+      border-right: none;
+      border: 1px solid #000;
+      color: rgb(220,220,220);
+      display: block;
+      font-size: 13px;
+      padding: 3px 15px;
+      &:hover, &:focus {
+        background: #555;
+        color: white;
+      }
+    }
+    &:last-child a {
+      @include border-radius(5px 5px 0 0);
+      border-right: 1px solid #000;
+    }
+    &.active a {
+      background: #fff;
+      color: $berklee-red;
+    }
+  }
+}
+
+ul.quicktabs-tabs {
+  @include clearfix();
+  margin-top: 15px;
+  margin-bottom: 15px;
+  opacity: 1;
+  li {
+    font-family: $headline;
+    margin-left: 0;
+    margin-top: 0;
+    padding: 0;
+    a {
+      font-size: 14px;
+      pointer-events: auto;
+    }
+    &:not(.active) a:hover, &:not(.active) a:focus {
+      cursor: pointer;
+    }
+    &:before {
+      display: none !important;
+    }
+  }
+}
+
+h1#page-title {
+  margin: -1px 0 7px -1px;
+  font-family: $headline-light;
+  font-weight: 100;
+  @media #{$s} {
+    padding: 20px 20px 0;
+  }
+  span.pretitle {
+    color: #666;
+    display: block;
+    font-family: $body;
+    font-size: 13px;
+    left: -3px;
+    line-height: 13px;
+  }
+}
+span.subtitle {
+  color: #666;
+  display: block;
+  font-family: $headline-light;
+  font-size: 14px;
+  margin-top: -13px;
+  margin-bottom: 4px;
+  @media #{$s} {
+    margin-left: 20px;
+  }
+}
+
+.view .view-header .subtitle {
+  margin-top: -8px;
+}
+
+.flexr {
+  opacity: 0;
+  @include transition(width 0.1s ease, height 0.1s ease, opacity 1s ease);
+  &.flexrd {
+    opacity: 1;
+  }
+}
+
+input[type="submit"], .button  {
+  /*
+  @include border-radius(4px);
+  background: #eee;
+  border: 1px solid #aaa;
+  color: #444;
+  margin: 10px 0;
+  padding: 4px 12px;
+  text-shadow: 1px 1px 0px #fff;
+  */
+  @include border-radius(2px);
+  @include clearfix();
+  background-color: $berklee-red;
+  border: none;
+  color: #eee;
+  display: block;
+  font-family: $headline;
+  margin: 10px 0;
+  padding: 6px 14px;
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
+  a {
+    color: #eee;
+    &:hover, &:focus {
+      color: #eee;
+      text-decoration: underline;
+    }
+  }
+}
+
+p.button {
+  &:hover, &:focus {
+    text-decoration: inherit;
+  }
+}
+
+a.button {
+  text-align: center;
+  &:hover, &:focus {
+    color: #eee;
+    text-decoration: underline;
+  }
+}
+
+.button
+
+.float-left, .align-left {
+  float: left;
+}
+
+.float-right, .align-right {
+  float: right;
+}
+
+.align-center {
+  &, img {
+    display: block;
+    margin: auto !important;
+    text-align: center;
+  }
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+ul.pager, .region-content ul.pager {
+  @include box-sizing(border-box);
+  border-top: 1px solid #ccc;
+  font-size: 15px;
+  height: 30px;
+  margin: 0 auto 40px;
+  max-width: 700px;
+  padding: 20px;
+  width: 100%;
+  li {
+    @include box-sizing(border-box);
+    float: left;
+    list-style-image: none;
+    list-style-type: none !important;
+    margin: 0;
+    padding: 0;
+    padding: 0;
+    width: 11%;
+    text-align: center;
+    &.pager-current, 
+    &.pager-ellipsis {
+      background: none;
+      padding: 7px 5px;
+      font-weight: normal;
+    }
+    a {
+      display: block;
+      margin: 0;
+      padding: 0;
+      padding: 7px 5px;
+      width: auto;
+    }
+
+  }
+  .pager-current {
+    font-family: $headline;
+    color: #999;
+  }
+}
+.view.first-page,
+.view.last-page {
+  .pager {
+    li {
+      width: 16%;
+    }
+  }
+}
+
+.label, label, .field-label {
+  background: none;
+  color: black;
+  font-family: $body-bold;
+  font-weight: normal;
+  padding-left: 0;
+}
+
+.qtip .content {
+  .field .field-item,
+  .field .field-item p,
+  .field-name-field-description .field-item,
+  div, p {
+    line-height: 15px;
+    font-weight: normal;
+  }
+  .field-label {
+    color: white;  
+  }
+}
+
+.inline {
+  display: inline;
+}
+
+.red-text {
+  color: $berklee-red;
+}
+
+.clearfix {
+  @include clearfix();
+  clear: both;
+}
+
+.inline, .field-label-inline div {
+  display: inline;
+}
+
+.field.inline, .field-label-inline {
+  .field-items .field-item:not(:first-child) {
+    &:before {
+      content: ',';
+      margin-right: 5px;
+      margin-left: -3px;
+    }
+  }
+}
+
+span.field-name-field-bt-author.inline {
+  display: inline!important;
+}
+span.field-name-field-bt-author.inline + span.field-name-field-bt-author.inline:before {
+  content: " / ";
+}
+
+img.shrinkage-performed {
+  @media (min-width: 980px) {
+    display: none;
+  }
+}
+
+/* Lightbox images. Hide all except the first. Add
+ * a plus sign to the bottom right corner to indicate
+ * that it's a lightbox.
+ */
+.node-page > .content > figure:not(:first-of-type) {
+  display: none;
+}
+
+.node-page > .content > figure.field-type-image {
+  float: right;
+  line-height: 0;
+  margin: 0 0 20px 20px;
+  padding: 0;
+  position: relative;
+  @media #{$s} {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    img {
+      margin: 0;
+      padding: 0;
+      max-width: 100%;
+    }
+    &.lightbox-processed:after {
+      @include icon('icon-plus', 'black');
+      background: rgba(120, 120, 120, 0.5);
+      bottom: 0px;
+      color: black;
+      display: block;
+      height: 10px;
+      line-height: 10px;
+      padding: 9px;
+      position: absolute;
+      right: 0px;
+      width: 10px;
+      z-index: 100;
+    }
+    &:hover:after {
+      color: $berklee-red;
+    }
+  }
+}
+
+.tabs-container {
+  @media #{$s} {
+  }
+}
+
+a[href$="rss"],
+a[href$="rss/"],
+a[href$="xml"],
+a[href$="xml/"],
+a[href$=".pdf"],
+.region-content a[href^="http"]:not([href*="berklee.edu"]), .region-sidebar-first a[href^="http"]:not([href*="berklee.edu"]) {
+  &:after {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 2px;
+  }
+}
+
+a[href$="rss"],
+a[href$="rss/"],
+a[href$="xml"],
+a[href$="xml/"] {
+  &:after {
+    @include icon('icon-rss-sign', #aaa, 0.5);
+    margin-top: 1px;
+  }
+}
+
+a[href$=".pdf"] {
+  &:after {
+    @include icon('icon-file-text', #aaa, 0.5);
+    margin-top: 1px;
+  }
+}
+.block-berklee-site-section {
+  a[href$=".pdf"],
+  a[href$="rss"],
+  a[href$="rss/"],
+  a[href$="xml"],
+  a[href$="xml/"],
+  a[href^="http"]:not([href*="berklee.edu"]) {
+    &:after {
+      position: absolute;
+    }
+  }
+}
+
+// Adds a calendar icon to the left of content inside a <p> tag //
+p.save-the-date {
+  &:before {
+    @include icon('icon-calendar', #aaa, 0.5);
+    display: inline-block;
+    margin-left: 1px;
+    margin-right: 5px;
+    margin-top: 1px;
+  }
+}
+
+.external-link-icon {
+  @include externalLinkIcon();
+}
+
+.region-content, .region-sidebar-first {
+  a[href^="http"]:not([href*="berklee.edu"]):not(.lightbox-processed):not(.button):not(.no-external-link-icon):not(.more) {
+    @include externalLinkIcon();
+  }
+}
+
+html body.content-only-display {
+  margin-top: 0 !important;
+  .region-header, .region-sidebar-first, .region-sidebar-second, .region-footer {
+    display: none;
+  }
+  #page {
+    @include box-sizing(border-box);
+    margin-top: 0px;
+    margin-left: 7px;
+    padding: 0 2em 0 0;
+    width: 100%;
+  }
+  .row {
+    margin-left: 0;
+  }
+  #page-content {
+    margin-left: 0;
+    width: 100%;
+    &:after {
+
+    }
+  }
+  .tabs-container {
+    display: none;
+  }
+  #admin-menu {
+    display: none;
+  }
+  .node-event .field-name-field-image a.lightbox-processed:after, .node-news .field-name-field-image a.lightbox-processed:after {
+    content: '';
+    display: none;
+    height: 0;
+    width: 0;
+  }
+}
+
+#page-content .columns {
+  -webkit-column-gap: 5px; /* Chrome, Safari, Opera */
+  -moz-column-gap: 5px; /* Firefox */
+  column-gap: 5px;
+  &.two {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+  &.three {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    @media #{$s} {
+      -webkit-column-count: 2;
+      -moz-column-count: 2;
+      column-count: 2;
+    }
+  }
+  &.four {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+    @media #{$m} {
+      -webkit-column-count: 3;
+      -moz-column-count: 3;
+      column-count: 3;
+    }
+    @media #{$s} {
+      -webkit-column-count: 2;
+      -moz-column-count: 2;
+      column-count: 2;
+    }
+  }
+}
+
+#social-media-directory { 
+
+  .content {
+    li {
+      float: left;
+    }
+    a {
+      background: url(#{$images}/social-32-extended.png) no-repeat;
+      display: block;
+      height: 32px;
+      width: 32px;
+      float: left;
+      margin: 2px;
+      color: transparent;
+      opacity: 0.6;
+      background-position: -32px 0px; // Hide it if there's no place
+      &:hover {
+        background-position: 0px 0px;
+        opacity: 1;
+      }
+      &[href*="berklee-blogs"] {
+        background-position: -32px 0px;
+        &:hover {
+          background-position: 0px 0px;
+        }
+      }
+      &[href*="twitter"] {
+        background-position: -32px -32px;
+        &:hover {
+          background-position: 0px -32px;
+        }
+      }
+      &[href*="facebook"] {
+        background-position: -32px -64px;
+        &:hover {
+          background-position: 0px -64px;
+        }
+      }
+      &[href*="youtube"] {
+        background-position: -32px -96px;
+        &:hover {
+          background-position: 0px -96px;
+        }
+      }
+      &[href*="instagram"] {
+        background-position: -32px -128px;
+        &:hover {
+          background-position: 0px -128px;
+        }
+      }
+      &[href*="tumblr"] {
+        background-position: -32px -160px;
+        &:hover {
+          background-position: 0px -160px;
+        }
+      }
+      &[href*="flickr"] {
+        background-position: -32px -192px;
+        &:hover {
+          background-position: 0px -192px;
+        }
+      }
+      &[href*="pinterest"] {
+        background-position: -32px -224px;
+        &:hover {
+          background-position: 0px -224px;
+        }
+      }
+    }
+  }
+}
+.region-content ul.menu li {
+  list-style-type: none;
+  margin: 0;
+}
+#social-media-directory h4 {
+  clear: left;
+}
+#page-content .region-content ul.menu {
+  padding-bottom: 30px;
+}
+
+
+.hidden-on-small-screen {
+  @media #{$s} {
+    @include visuallyhidden();
+  }
+}
+
+object embed {
+  @media #{$s} {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+// page output overrides
+body.hide-search {
+  form.google-cse {
+    display: none;
+  }
+}
+
+body.hide-top-left-nav {
+  #block-menu-menu-department-menu {
+    display: none;
+  }
+}
+
+body.hide-campus-tools {
+  #block-menu-menu-campus-tools {
+    display: none;
+  }
+}
+
+body.hide-login {
+  .block.user-login-logout {
+    display: none;
+  }
+}
+
+body.hide-apply {
+  .block.apply {
+    display: none;
+  }
+}
+
+body.render-only-header.iframed {
+  min-height: 1000px;
+  background: transparent;
+}
+
+.ui-tooltip, .qtip {
+  @include transition(all 0.9s ease);
+  opacity: 0;
+}
+
+.ui-tooltip-focus {
+  opacity: 0;
+}
+
+.background-gray, .background-grey, .background-gray-80 {
+  background: #aaa;
+}

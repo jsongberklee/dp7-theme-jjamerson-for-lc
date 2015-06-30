@@ -1,0 +1,73 @@
+name = J. Jamerson
+description = Custom base theme for Berklee.
+core = 7.x
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Custom stylesheets:
+stylesheets[screen][] = stylesheets/jjamerson_screen.css
+stylesheets[screen][] = _learningcenter/learningcenter_screen.css
+stylesheets[print][] = stylesheets/jjamerson_print.css
+
+; Custom JS:
+scripts[] = js/jjamerson.min.js
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Regions:
+
+regions[page_top]       = Page top
+; Page top is the very top of the body. A default Drupal region that is 
+; hidden from the UI. Items must be added via code. The admin toolbar appears 
+; in this region.
+
+regions[emergency_bar]  = Emergency bar
+; The emergency bar spans full width and is immediately below the 
+; page top.
+
+regions[header]         = Header
+; The top of the page container. 
+
+regions[top_nav]        = Fixed top navigation bar
+; 
+
+regions[off_screen_sidebar]     = Off-Screen Sidebar
+; The sidebar that hides off-canvas and slides in when its button is clicked.
+
+regions[off_screen_overlay]     = Off-Screen Overlay
+; The content area that overlays the page when the off-screen sidebar is activated.
+
+regions[help]           = Help & Messages
+; For system messages, webform erros, and whatlike. Below the header but above 
+; the breadcrumbs, social links, and page title. Spans page container.
+
+regions[content_top]    = Content top
+; Below the breadcrumbs, social links, and page title. Spans content region.
+
+regions[content]        = Content
+; Yeah.
+
+regions[content_bottom] = Content bottom
+; mmm hmm
+
+regions[stripes]  = Stripes 
+; Full-width strips of content that sit below the content and sidebar regions
+
+regions[sidebar_first]  = First sidebar (left or above)
+; Secondary menu (departments, sections, etc.) goes in here
+
+regions[sidebar_second] = Second sidebar (right or below)
+; Superfluous stuff goes here.
+
+regions[footer]         = Footer
+; Copyright &copy; 2013
+
+regions[page_bottom]    = Page bottom
+; Like page top, but more of a submissive personality type.
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Options to show up on the theme's settings page:
+features[] = logo
+features[] = name
+features[] = slogan
+features[] = favicon

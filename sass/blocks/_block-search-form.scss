@@ -1,0 +1,163 @@
+#block-search-form {
+  float: right;
+  width: 30%;
+  position: relative;
+  /* The search bar */
+  .google-cse, #search-block-form {
+    @include transition(all 0.5s);
+    width: auto;
+    float: right;
+    margin-left: 7px;
+    width: 100%;
+    .form-actions {
+      background: none;
+    }
+    &:after {
+        @include icon('icon-search', '#999');
+        display: block;
+        height: 10px;
+        position: absolute;
+        right: 10px;
+        top: 0.2em;
+        width: 10px;
+        z-index: 2;
+      }
+    input[name="search_block_form"] {
+      @include border-radius(2px);
+      @include transition(all 0.5s);
+      background-image: none !important; // override the "google custom search" text
+      color: #ddd;
+      float: left;
+      font-style: italic;
+      height: 14px;
+      margin: 5px 0 0 0;
+      opacity: 0.9;
+      position: relative;
+      width: 100%;
+      z-index: 1;
+      border: none;
+      padding: 0.4em 0em 0.4em 1em;
+      margin-top: 0;
+      &:focus, &:active {
+        color: #777;
+        font-style: normal;
+        opacity: 1;
+      }
+    }
+    input.form-submit {
+      display: none;
+    }
+  }
+  .results {
+    @include box-shadow(2px 2px 4px rgba(0,0,0,0.1) );
+    @include box-sizing(border-box);
+    @include transition(all 0.3s ease);
+    background: white;
+    border: 1px solid #eee;
+    clear: both;
+    display: block;
+    overflow: hidden;
+    padding: 1em;
+    width: 100%;
+    z-index: 1000;
+    height: 0 !important;
+    opacity: 0;
+    &.populated {
+      opacity: 1;
+      height: auto !important;
+    }
+    a {
+      &:not(:last-child) { border-bottom: 1px solid #eee; }
+      clear: both;
+      color: $berklee-red;
+      display: block;
+      float: none;
+      font-size: 1em;
+      line-height: 1.4em;
+      overflow: hidden;
+      padding: 0.2em 0;
+      &:hover  {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.menu-filter {
+  padding: 1em;
+  border: 1px solid #222;
+  position: fixed;
+  left: 8.75%;
+  top: 25%;
+  width: 52.5%;
+  margin-left: 30%;
+  @include transition(all 1s ease);
+  background: rgba(0,0,0,0.75);
+  padding: 2em;
+  border-radius: 10px;
+  h3 {
+    color: white;
+    margin-bottom: 0.4em;
+    font-size: 2em;
+    font-family: $headline-light;
+  }
+  input[type="text"] {
+    //background: #000;
+    @include box-shadow(inset 0 0 5px black);
+    @include box-sizing(border-box);
+    border-radius: 3px;
+    border: 1px solid #666;
+    border: none;
+    float: left;
+    font-size: 1.2em;
+    font-style: italic;
+    margin-bottom: 0.2em;
+    padding: 0.3em;
+    height: 47px;
+    width: 90%;
+    &.default-text {
+      color: $berklee-red;
+    }
+  }
+  .menu-filter-submit {
+    @include box-sizing(border-box);
+    float: right;
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0.8em;
+    width: 9%;
+    text-align: center;
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+  .results {
+    clear: both;
+    margin-top: 0.5em;
+    overflow: hidden;
+    @include transition(all 0.3s ease);
+    a {
+      display: block;
+      color: white;
+      font-size: 1em;
+      font-style: italic;
+      &:not(:last-child) { border-bottom: 1px solid #444; }
+      padding: 0.2em 0;
+    }
+  }
+  .menu-filter-help {
+    //display: none; //disable for now
+    @include transition(all 0.2s ease);
+    opacity: 1;
+    max-height: 200px;
+    color: #ccc;
+    font-size: 1em;
+    line-height: normal;
+    padding: 0 0.5em;
+  }
+  &.results .menu-filter-help {
+    opacity: 0;
+    max-height: 0px;
+  }
+}

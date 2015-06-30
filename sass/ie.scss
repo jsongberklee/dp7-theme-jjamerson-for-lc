@@ -1,0 +1,49 @@
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+
+.region-sidebar-first {
+  max-width: 170px;
+}
+
+#page-content {
+  max-width: 520px;
+  padding-left: 20px;
+  padding-right: 20px; 
+}
+
+.region-sidebar-second {
+  max-width: 230px;
+}
+
+#block-system-main-menu a[href='/search/google'] .text { display: none; }
+
+#block-system-main-menu.block-menu .content > ul.menu > li {
+  background: #eee;
+}
+
+#block-system-main-menu.block-menu .dropdown-container {
+  background: #eee;
+}
+
+.not-front .region-header {
+  max-width: 980px;
+  margin: auto;
+}
+
+#block-system-main-menu.block-menu.item-count-5 .content > ul > li { width: 186px; }
+#block-system-main-menu.block-menu.item-count-6 .content > ul > li { width: 150px; }
+#block-system-main-menu.block-menu.item-count-7 .content > ul > li { width: 125px; }
+#block-system-main-menu.block-menu.item-count-8 .content > ul > li { width: 107px; }
+#block-system-main-menu.block-menu.item-count-9 .content > ul > li { width: 93px; }
+
+#block-system-main-menu.block-menu.item-count-5 .content > ul > li a { font-size: 14px }
+#block-system-main-menu.block-menu.item-count-6 .content > ul > li a { font-size: 13px }
+#block-system-main-menu.block-menu.item-count-7 .content > ul > li a { font-size: 12px }
+#block-system-main-menu.block-menu.item-count-8 .content > ul > li a { font-size: 11px }
+#block-system-main-menu.block-menu.item-count-9 .content > ul > li a { font-size: 10px }
+
+#block-system-main-menu.block-menu li.no-submenu { width: 35px !important; }
+

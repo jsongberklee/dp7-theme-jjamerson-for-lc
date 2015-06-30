@@ -1,0 +1,112 @@
+.content-slideshow {
+  float: right;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  img {
+    background: #aaa;
+  }
+  .slideshow-images {
+    height: auto;
+    overflow: hidden;
+    padding-bottom: 1em;
+    width: 1000%;
+    figure {
+      float: left;
+      margin: 0;
+      padding: 0;
+      width: 10%;
+      img {
+        min-width: 100%;
+        width: 100%;
+      }
+    }
+  }
+  .credit {
+    margin-top: 0.66em;
+  }
+  .slideshow-thumbs {
+    clear: both;
+    height: 50px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    width: 1000%;
+    @media #{$s} {
+      display: none;
+    }
+    img {
+      border-bottom: 3px solid trasparent;
+      float: left;
+      height: 47px;
+      margin: 0 0.1% 0 0;
+      max-width: 100%;
+      opacity: 0.7;
+      padding: 0;
+      transition: all 0.15s ease;
+      width: auto;
+      &:hover {
+        border-bottom: 3px solid #ccc;
+        cursor: pointer;
+      }
+    }
+
+  }
+  @for $i from 0 through 20 {
+    &[data-active-slide="#{$i}"] {
+      .slideshow-images {
+        @include transform(translate3d(-10% * $i, 0, 0) );
+      }
+      .slideshow-thumbs img[data-number="#{$i}"] {
+        border-bottom: 3px solid $berklee-red;
+      }
+    }
+  }
+  .slideshow-chrome {
+    width: 100%;
+    .slideshow-left, .slideshow-right {
+      color: white;
+      font-size: 50px;
+      height: 70%;
+      margin-top: 60px;
+      opacity: 0.6;
+      position: absolute;
+      text-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+      top: 0%;
+      width: 45px;
+      z-index: 3;
+      &:before {
+        position: absolute;
+        top: 30%;
+      }
+      &:hover {
+        cursor: pointer;
+        opacity: 1;
+      }
+    }
+    .slideshow-left {
+      left: 7px;
+      &:before {
+        left: 0;
+      }
+    }
+    .slideshow-right {
+      right: 7px;
+      &:before {
+        right: 0;
+      }
+    }
+  }
+}
+
+.content-slideshow.mini {
+  @media #{$not-small} {
+    float: right;
+    margin: 0 0 1em 1em;
+    width: 40%;
+  }
+}
+
+figure.media-element-wrapper.slideshow {
+  display: none;
+}

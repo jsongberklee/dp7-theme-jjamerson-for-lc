@@ -1,0 +1,171 @@
+/* Welcome to Compass. Use this file to define print styles.
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
+
+@import "_custom-mixins.scss";
+
+* { background: transparent; color: black; text-shadow: none; position: relative; }
+img { max-width: 100%; }
+
+body {
+  font: 12pt Georgia, "Times New Roman", Times, serif;
+  line-height: 1.3;
+  color: #000;
+}
+
+h1 {
+  font-size: 20pt;
+}
+
+h2 {
+  font-size: 16pt;
+  margin: 15px 0 5px 0;
+  padding: 0 0 3px 0;
+  border-bottom: 1px solid #eeeeee;
+}
+
+h3 {
+  color: #333333;
+  margin-top: 10px;
+}
+
+a[href]::after,
+a[href^="#"]:after {
+  display: none;
+}
+
+a {
+  color:#cccccc;
+  font-style: italic;
+}
+
+#block-system-main-menu,
+#block-block-91,
+#block-block-66,
+#block-block-71,
+#block-menu-menu-campus-tools,
+#block-menu-menu-department-menu,
+#block-menu-menu-user-menu-quicklinks,
+.tabs-container,
+.share-holder,
+.field-type-image,
+#sidebar-first,
+#block-masquerade-masquerade,
+#footer .row,
+#footer .footer-block,
+#block-berklee-info-block-berklee-info-block,
+#sidebar-second,
+.views-field-view-node,
+.page-slideshow,
+.messages,
+#skip-link,
+#block-search-form {
+//.region-content:not(.region-content-top) ul:not(#callout):not(.no-bullets):not(.pager):not(.quicktabs-tabs):not(.tabset) li:not(.no-bullet):before, .region-content:not(.region-content-top) ul:not(#callout):not(.no-bullets):not(.pager):not(.quicktabs-tabs):not(.tabset) li:not(.no-bullet) .bullet, .region-content:not(.region-content-top) ul:not(#callout):not(.no-bullets):not(.pager):not(.quicktabs-tabs):not(.tabset) .bulleted-item:before, .region-content:not(.region-content-top) ul:not(#callout):not(.no-bullets):not(.pager):not(.quicktabs-tabs):not(.tabset) .bulleted-item .bullet, .region-content .with-bullets li:not(.no-bullet):before, .region-content .with-bullets li:not(.no-bullet) .bullet, .region-content .with-bullets .bulleted-item:before, .region-content .with-bullets .bulleted-item .bullet, .region-content-top:not(.region-content-top) ul:not(#callout):not(.no-bullets):not(.pager):not(.quicktabs-tabs):not(.tabset) li:not(.no-bullet):before, .region-content-top:not(.region-content-top) ul:not(#callout):not(.no-bullets):not(.pager):not(.quicktabs-tabs):not(.tabset) li:not(.no-bullet) .bullet, .region-content-top:not(.region-content-top) ul:not(#callout):not(.no-bullets):not(.pager):not(.quicktabs-tabs):not(.tabset) .bulleted-item:before, .region-content-top:not(.region-content-top) ul:not(#callout):not(.no-bullets):not(.pager):not(.quicktabs-tabs):not(.tabset) .bulleted-item .bullet, .region-content-top .with-bullets li:not(.no-bullet):before, .region-content-top .with-bullets li:not(.no-bullet) .bullet, .region-content-top .with-bullets .bulleted-item:before, .region-content-top .with-bullets .bulleted-item .bullet, .cke_show_borders:not(.region-content-top) ul:not(#callout):not(.no-bullets):not(.pager):not(.quicktabs-tabs):not(.tabset) li:not(.no-bullet):before, .cke_show_borders:not(.region-content-top) ul:not(#callout):not(.no-bullets):not(.pager):not(.quicktabs-tabs):not(.tabset) li:not(.no-bullet) .bullet, .cke_show_borders:not(.region-content-top) ul:not(#callout):not(.no-bullets):not(.pager):not(.quicktabs-tabs):not(.tabset) .bulleted-item:before, .cke_show_borders:not(.region-content-top) ul:not(#callout):not(.no-bullets):not(.pager):not(.quicktabs-tabs):not(.tabset) .bulleted-item .bullet, .cke_show_borders .with-bullets li:not(.no-bullet):before, .cke_show_borders .with-bullets li:not(.no-bullet) .bullet, .cke_show_borders .with-bullets .bulleted-item:before, .cke_show_borders .with-bullets .bulleted-item .bullet, .cke_contents:not(.region-content-top) ul:not(#callout):not(.no-bullets):not(.pager):not(.quicktabs-tabs):not(.tabset) li:not(.no-bullet):before, .cke_contents:not(.region-content-top) ul:not(#callout):not(.no-bullets):not(.pager):not(.quicktabs-tabs):not(.tabset) li:not(.no-bullet) .bullet, .cke_contents:not(.region-content-top) ul:not(#callout):not(.no-bullets):not(.pager):not(.quicktabs-tabs):not(.tabset) .bulleted-item:before, .cke_contents:not(.region-content-top) ul:not(#callout):not(.no-bullets):not(.pager):not(.quicktabs-tabs):not(.tabset) .bulleted-item .bullet, .cke_contents .with-bullets li:not(.no-bullet):before, .cke_contents .with-bullets li:not(.no-bullet) .bullet, .cke_contents .with-bullets .bulleted-item:before, .cke_contents .with-bullets .bulleted-item .bullet {
+   display: none;
+ }
+
+.row {
+  clear: both;
+}
+
+#page {
+  margin-top: 140px;
+}
+
+ol, ul {
+  list-style-type: square;
+}
+
+article.container,
+body.two-sidebars #page-content {
+  margin: 0 0 0 30px;
+  padding-top: 0;
+  width:95%;
+}
+
+section.region-header .container {
+  margin: 0 0 0 30px;
+  width:95%;
+}
+
+section.region-header,
+section.region-header:before {
+  margin: 0;
+  height: 0;
+}
+
+#page-content iframe,
+#page-content object { 
+  display: none;
+}
+
+.block .news-events-style:not(.no-images) .view-content p, .block .news-events-style:not(.no-images) .view-content h3, .block .peeps:not(.no-images) .view-content p, .block .peeps:not(.no-images) .view-content h3, .block .peeps-style:not(.no-images) .view-content p, .block .peeps-style:not(.no-images) .view-content h3, .block .announcements-style:not(.no-images) .view-content p, .block .announcements-style:not(.no-images) .view-content h3 {
+  margin-left: 0;
+}
+.not-front:not(.node-type-landing-page) .region-content .block:not(#block-system-main):not(.style-exempt):not(#block-berklee-site-section-announcements),
+.not-front:not(.node-type-landing-page) .region-content .block:not(#block-system-main):not(.style-exempt):not(#block-berklee-site-section-announcements) .content,
+.not-front:not(.node-type-landing-page) .region-content .block:not(#block-system-main):not(.style-exempt):not(#block-berklee-site-section-announcements) > h3 {
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+
+.block,
+#footer,
+.region-footer,
+.region-header,
+.region-header:before {
+  background-image: none;
+  background-color: #fff;
+  box-shadow: none;
+}
+
+#footer:before {
+  display: block;
+  content: "Thank you for visiting Berklee College of Music at www.berklee.edu";
+  font-size: 10px;
+  font-style: italic;
+  margin: 10px 40px;
+}
+
+.container {
+  width: 100%;
+}
+
+#logo img {
+ width: 144px;
+}
+
+.page-directory-print .region-content {
+  table {
+    table-layout: auto;
+    td {
+      padding: 1px 3px;
+    }
+    tr {
+      background: transparent;
+    }
+    tr:nth-child(even) {
+      background: #fafafa !important;
+    }
+    th {
+      text-align: center;
+    }
+  }
+  .phone, .fax {
+    white-space: nowrap;
+    &:before {
+      margin-right: 6px;
+    }
+  }
+  .phone {
+    &:before {
+      @include icon('icon-phone', '#cfd5d5');
+    }
+  }
+  .fax {
+    &:before {
+      @include icon('icon-print', '#cfd5d5');
+    }
+  }
+}

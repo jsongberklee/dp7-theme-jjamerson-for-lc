@@ -1,0 +1,42 @@
+body.page-user {
+  .region-content > .container > .block {
+    margin-bottom: 15px;
+  }
+  .form-item.form-type-password {
+    @include clearfix();
+    position: relative;
+  }
+  input.form-text {
+    width: 30%;
+  }
+  .password-strength, .password-confirm:first-child {
+    color: #666;
+    float: right;
+    font-family: $body-italic;
+    margin-top: 22px;
+    position: relative;
+    width: 67%;
+  } 
+  .password-strength-text {
+    color: black;
+    font-family: $body-bold;
+    left: 129px;
+    position: absolute;
+  }
+  .password-confirm:first-child > span {
+    font-family: $body-bold;
+    &.ok {
+      color: green;
+    }
+    &.error {
+      color: red;
+    }
+  }
+  .password-suggestions.description {
+    font-size: 13px;
+    li {
+      margin: 6px 0;
+      line-height: 17px;
+    }
+  }
+}

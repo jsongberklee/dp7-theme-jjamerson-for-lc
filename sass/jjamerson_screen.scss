@@ -1,0 +1,77 @@
+/*
+ * Notes:
+ * 
+ *    You'll need the Sass Globbing Importer plugin for this file to work. It lets us import 
+ *    entire directories.
+ *    https://github.com/chriseppstein/sass-globbing
+ *
+ *    Files that begin with an underscore aren't compiled into mirrored CSS files. That's good,
+ *    'cause we're importing all those files into this one, and it's nice to keep the stylesheets 
+ *    directory clean.
+*/
+
+// Defining charset because it was being automatically added some times but not others:
+@charset "UTF-8";
+
+// Compass imports:
+@import "compass";
+@import "compass/reset";
+@import "compass/utilities/general/clearfix";
+
+// Layouts:
+
+$huge: '(min-width: 1600px)';
+$xl: '(min-width: 1200px)';
+$l:  '(min-width: 980px) and (max-width: 1199px)';
+$m:  '(min-width: 768px) and (max-width: 979px)';
+$s:  '(max-width: 767px)';
+$not-small: '(min-width: 768px)';
+$not-large: '(max-width: 979px)';
+$not-xlarge: '(max-width: 1199px)';
+$huge-width: 1600px;
+$xl-width: 1200px;
+$l-width:  980px;
+$m-width:  768px;
+$s-width:  480px;
+
+
+@include font-face("opensans", font-files("opensans_regular_macroman/OpenSans-Regular-webfont.woff", woff, "opensans_regular_macroman/OpenSans-Regular-webfont.ttf", truetype, "opensans_regular_macroman/OpenSans-Regular-webfont.svg", svg));
+@include font-face("opensans-bold", font-files("opensans_bold_macroman/OpenSans-Bold-webfont.woff", woff, "opensans_bold_macroman/OpenSans-Bold-webfont.ttf", truetype, "opensans_bold_macroman/OpenSans-Bold-webfont.svg", svg), false, bold);
+@include font-face("opensans-italic", font-files("opensans_italic_macroman/OpenSans-Italic-webfont.woff", woff, "opensans_italic_macroman/OpenSans-Italic-webfont.ttf", truetype, "opensans_italic_macroman/OpenSans-Italic-webfont.svg", svg), false, normal, 'italic, oblique');
+@include font-face("opensans-bold-italic", font-files("opensans_bolditalic_macroman/OpenSans-BoldItalic-webfont.woff", woff, "opensans_bolditalic_macroman/OpenSans-BoldItalic-webfont.ttf", truetype, "opensans_bolditalic_macroman/OpenSans-BoldItalic-webfont.svg", svg), false, bold, 'italic, oblique');
+@include font-face("opensans-light", font-files("opensans_light_macroman/OpenSans-Light-webfont.woff", woff, "opensans_light_macroman/OpenSans-Light-webfont.ttf", truetype, "opensans_light_macroman/OpenSans-Light-webfont.svg", svg));
+
+
+$headline-bold: "opensans-bold",​ Arial,​ Helvetica,​ sans-serif;
+$headline: $headline-bold; // easy to use alias for default headline font
+//$headline-black: "Frutiger65Black",​ Arial,​ Helvetica,​ sans-serif;
+$headline-regular: "opensans",​ Arial,​ Helvetica,​ sans-serif;
+$headline-light: "opensans-light",​ Arial,​ Helvetica,​ sans-serif;
+
+$body: "opensans",​ Arial,​ Helvetica,​ sans-serif;
+$body-bold: "opensans-bold",​ Arial,​ Helvetica,​ sans-serif;
+$body-italic: "opensans-italic",​ Arial,​ Helvetica,​ sans-serif;
+$body-bold-italic: "opensans-bold-italic",​ Arial,​ Helvetica,​ sans-serif;
+
+$icon-font: fontAwesome;
+
+// Assets:
+$images: "../images";
+
+// Colors:
+//$berklee-red: #ed1c24;
+$berklee-red: #d81118; // darkened for accessibility purposes
+$light-gray: #eee;
+$berklee-gray: $light-gray; // alias
+
+// Merge all stylesheets into this file:
+//@import "../fonts/font-awesome/scss/font-awesome.scss";
+@import "_custom-mixins.scss";
+@import "blocks/*";
+@import "content-types/*";
+@import "general/*";
+@import "modules/*";
+@import "pages/*";
+@import "regions/*";
+@import "site-sections/*";
+@import "views/*";

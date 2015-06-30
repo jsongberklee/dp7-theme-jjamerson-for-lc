@@ -1,0 +1,154 @@
+.region-top-nav .block-menu.campus-tools {
+  position: relative;
+  @media #{$not-small} {
+    float: right;
+  }
+  h3 {
+    border-right: 1px solid #444;
+    color: transparent;
+    height: 30px;
+    line-height: 1.5em;
+    margin-right: 0.5em;
+    overflow: hidden;
+    padding-left: 10px;
+    text-align: center;
+    width: 28px;
+    &:before {
+      content: "\f00a";
+      font-family: fontAwesome;
+      font-size: 16px;
+      color: white;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .contextual-links-wrapper {
+    left: -30px;
+    width: 30px;
+  }
+  .content {
+    nav {
+      @include transition(opacity 0.4s ease);
+      @media #{$not-small} {
+        margin-top: 35px;
+        width: 314px;
+        height: 416px;
+        background: #f2f2f2;
+        border: 2px solid #dedede;
+        border-radius: 2px;
+        left: -142px;
+        top: 0px;
+        opacity: 1;
+        position: absolute;
+      }
+      padding: 0.2em;
+      position: relative;
+      &:not(.visible) {
+        @include visuallyhidden();
+        opacity: 0;
+      }
+      &:after {
+        @include transform( rotate(45deg) );
+        background: #f2f2f2;
+        border: 2px solid #dedede;
+        border-bottom-width: 0;
+        border-right-width: 0;
+        content: '';
+        height: 15px;
+        left: 150px;
+        position: absolute;
+        top: -10px;
+        width: 15px;
+      }
+      li.has-submenu {
+        .nolink {
+          display: block;
+          text-align: center;
+          border-bottom: 1px solid #ddd;
+          color: #999;
+          font-family: $headline-light;
+          font-size: 11px;
+          margin-bottom: 0.66em;
+        }
+        &.first > ul li {
+          height: 40px;
+          border-top: 2px solid #ccc;
+          &:hover {
+            border-top-color: $berklee-red;
+          }
+          a {
+            font-family: $body-bold;
+            height: auto;
+            position: relative;
+            transform: translateY(-50%);
+            font-size: 11px;
+            color: #666;
+            text-align: center;
+            top: 50%;
+            margin-left: -1px;
+          }
+        }
+        > ul {
+          clear: both;
+          display: block;
+          width: 100%;
+          li {
+            @include transition(all 0.4s ease);
+            display: block;
+            width: 93px;
+            float: left;
+            margin: 4px;
+            height: 93px;
+            background: white;
+            position: relative;
+            z-index: 5;
+            box-shadow: 1px 1px 4px rgba(0,0,0,0.08);
+            a {
+              display: block;
+              width: 100%;
+              height: 100%;
+              padding: 2%;
+              font-size: 12px;
+              color: #888;
+              font-family: $headline-light;
+              line-height: normal;
+              text-align: center;
+              position: relative;
+              i {
+                @include transition(all 0.4s ease);
+                position: absolute;
+                font-size: 35px;
+                text-align: center;
+                width: 100%;
+                left: 0;
+                top: 0.5em;
+                &.icon-lynda {
+                  background-image: url('#{$images}/icons/lynda-100x100-gray.png');
+                  background-repeat: no-repeat;
+                  background-size: 40px;
+                  display: block;
+                  height: 40px;
+                  margin: -5px auto;
+                  opacity: 0.85;
+                  padding: 0 1px;
+                  position: relative;
+                  width: 40px;
+                }
+              }
+              &:hover .icon-lynda {
+                @include filter( sepia(50%) saturate(1000%) hue-rotate(320deg) brightness(32%) saturate(300%) );
+              }
+              span.text {
+                position: absolute;
+                bottom: 10px;
+                width: 100%;
+                left: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

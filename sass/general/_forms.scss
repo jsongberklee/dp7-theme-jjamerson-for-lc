@@ -1,0 +1,215 @@
+html.js input.form-autocomplete {
+  background-position: 100% -66%;
+}
+html.js input.throbbing {
+  background-position: 100% 100%;
+}
+
+span.form-required {
+  color: $berklee-red;
+  white-space: pre;
+  margin: 0 6px 0 3px;
+}
+
+select, textarea, 
+input[type="text"], input[type="password"], input[type="datetime"], 
+input[type="datetime-local"], input[type="date"], input[type="month"], 
+input[type="time"], input[type="week"], input[type="number"], input[type="email"], 
+input[type="url"], input[type="search"], input[type="tel"], input[type="color"], 
+input[type="text"], .uneditable-input {
+  @include border-radius(5px);
+  border: 1px solid #ddd;
+  color: #555555;
+  color: #888;
+  display: inline-block;
+  font-size: 14px;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 10px;
+  padding: 0.45em;
+  padding: 4px 6px;
+  vertical-align: middle;
+}
+
+input[type="file"] {
+  display: inline-block;
+  padding: 1em 0 2em;
+  height: 20px;
+}
+
+input[type="submit"] {
+  font-size: 1em;
+}
+
+.form-type-checkboxes, 
+.form-type-radios, 
+.webform-component-radios {
+  & > label {
+    margin-bottom: 1em;
+    clear: both;
+    display: block;
+  }
+}
+
+/* Slight form tweak http://www.berklee.edu/giving/more-than-a-job */
+#webform-client-form-2227251 {
+  h3 {
+    border-bottom: 1px solid #ededed;
+    font-size: 24px;
+    margin-bottom: 10px;
+    @media #{$s} {
+      margin: 0 0 10px 20px;
+    }
+  }
+  label {
+    display: inline-block;
+    width: 200px;
+  }
+}
+
+/* Overriding bootstrap stuff: */
+.form-actions {
+  background: transparent;
+  border-top: none;
+  margin: 0;
+  padding: 0;
+  #edit-previous {
+    float: left;
+  }
+  #edit-next {
+    float: right;
+  }
+}
+
+.form-wrapper {
+  margin-top: 6px;
+  padding-top: 6px;
+  legend {
+    font-family: $headline;
+    font-size: 16px;
+  }
+}
+
+input.form-text {
+  width: 95%;
+}
+
+.form-type-checkbox {
+  @include clearfix();
+  input[type="checkbox"], label.option {
+    float: left;
+  }
+  input[type="checkbox"] {
+  }
+  label.option {
+    color: #555;
+    margin-left: 6px;
+    margin-top: 2px;
+    max-width: 80%;
+    padding-left: 4px;
+  }
+}
+
+@media #{$s} {
+  #page-content {
+    .views-exposed-widget, 
+    .views-widget, 
+    .form-item,
+    .views-exposed-form .container-inline-date .date-padding,
+    .form-select,
+    input.form-text {
+      @include box-sizing('border-box');
+      display: block;
+      margin-bottom: 7px;
+      min-height: 35px;
+      width: 100% !important;
+    } 
+    .webform-component input[type="radio"] {
+      margin-right: 8px;
+    }
+    .webform-component.form-item > label {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+form {
+  @media #{$s} {
+    padding: 20px;
+  }
+}
+
+select {
+  @include border-radius(5px);
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  line-height: 30px;  
+  height: 30px;
+}
+
+textarea {
+  height: 100px;
+  min-height: 25px;
+  @include border-radius(5px 5px 0 0);
+}
+
+.grippie {
+  margin-bottom: 10px;
+}
+
+
+.form-item, .pseudo-form-item {
+  margin-bottom: 10px;
+  .description {
+    color: #666;
+    font-size: 13px;
+    padding-bottom: 10px;
+    @media #{$s} {
+      padding-bottom: 0;
+    }
+  }
+  .form-type-radio {
+    &:first-child {
+      clear: both;
+    }
+    float: left;
+    margin: 0 !important;
+    min-height: 35px;
+    padding: 0 !important;
+    width: 49%;
+    label {
+      display: inline;
+    }
+  }
+}
+
+input[type="checkbox"]:not(.vbo-select) {
+  opacity: 0;
+  margin-top: 5px !important;
+  + label {
+    position: relative;
+    &:before {
+      color: #999;
+      // TO DO: Switch this fontawesome declaration to use the icon-check-empty custom mixin
+      content: "\f096";
+      font-family: FontAwesome;
+      left: -17px;
+      line-height: 0;
+      position: absolute;
+      top: 10px;
+      vertical-align: baseline;
+      z-index: -1;
+    }
+  }
+  &:checked + label {
+    &:before {
+      color: $berklee-red;
+      // TO DO: Switch this fontawesome declaration to use the icon-check-sign custom mixin
+      content: "\f14a";
+    }
+  }
+}
+
+.region-content table.webform-grid {
+  table-layout: auto;
+}

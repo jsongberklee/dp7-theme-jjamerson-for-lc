@@ -1,0 +1,62 @@
+.webform-component {
+  @include clearfix();
+  border-bottom: 1px dotted #ccc;
+  clear: both;
+  line-height: 20px;
+  padding-bottom: 10px;
+  &.webform-component-markup {
+    border-bottom: none;
+    padding-bottom: 0;
+    strong {
+      font-size: 18px;
+    }
+  }
+  input, select {
+    margin-top: 10px;
+  }
+  input[type="radio"] {
+    margin-left: 2px;
+    margin-top: -3px;
+  }
+  label.option {
+    font-family: $body;
+  }
+  .webform-datepicker select {
+    width: 25%;
+  }
+  &.webform-component-checkboxes {
+    > label {
+      clear: both;
+      display: block;
+      margin-bottom: 16px;
+    }
+    .form-type-checkbox {
+      display: block;
+      float: left;
+      margin-left: 16px;
+      width: 100%;
+    }
+  }
+  &.webform-component-radios {
+    > label {
+      float: left;
+    }
+    .form-type-radio {
+      float: left;
+      margin-right: 16px;
+    }
+  }
+  .description {
+    clear: both;
+    margin-top: 5px;
+  }
+}
+  div.select-or-other div.form-type-radios + div.form-type-textfield  {
+    clear: left;
+    float: left;
+  }
+
+  input.form-text.error {
+    border-color: rgba(200,50,50,0.75);
+    border-width: 2px;
+  }

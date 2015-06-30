@@ -1,0 +1,84 @@
+.berklee-slider {
+  margin-bottom: 15px;
+  overflow: hidden;
+  position: relative;
+  h3 {
+    font-size: 13px;
+  } 
+  .berklee-slider-canvas {
+    height: 100%;
+    overflow: hidden;
+    width: 30000px;
+  }
+  .berklee-slide {
+    float: left;
+    height: 100%;
+    margin-right: 20px;
+    position: relative;
+    h4 {
+      font-size: 13px;
+      a {
+        color: white;
+      }
+    }
+  }
+  .berklee-slider-navigation {
+    float: right;
+  }
+  .berklee-slider-button {
+    background: #333;
+    border: 2px solid #fff;
+    color: #fff;
+    float: left;
+    font-size: 13px;
+    margin: 0;
+    padding: 1px 3px 0;
+    width: 16px;
+    &:hover {
+      cursor: pointer;
+    }
+    &.disabled {
+      color: #ccc;
+    }
+  }
+}
+
+.slider.full-width-overlay {
+  position: relative;
+  height: 400px;
+  .views-row, .slide {
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    &.active {
+      opacity: 1;
+    }
+  }
+}
+
+.views_slideshow_slide {
+  &, .views-row, p {
+    @include transition(none);
+  }
+  img {
+    @include transition(1s all ease);
+  }
+}
+
+.page-slideshow-portrait {
+  font-size: 13px;
+  color: #666;
+  .teaser {
+    color: #4f4f4f;
+    line-height: 17px;
+  }
+  .field-job-title {
+    font-size: 13px;
+    font-style: italic;
+  }
+  .field-department-primary {
+    &, a {
+      font-size: 13px;
+    }
+  }
+}

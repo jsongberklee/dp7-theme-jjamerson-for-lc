@@ -1,0 +1,266 @@
+.region-header {
+  //@include box-shadow( inset 0 0px 10px rgba(0,0,0,0.2) );
+  //background: url(#{$images}/header/bg-photo-001.jpg) no-repeat transparent;
+  background: url(#{$images}/header/banner-default-feb-2014.jpg) no-repeat transparent;
+  background-size: cover;
+  @media #{$xl} {
+    height: 193px;
+  }
+  @media #{$l} {
+    height: 183px;
+  }
+  @media #{$m} {
+    height: 177px;
+  }
+  h3 {
+    font-family: $body;
+  }
+  h2.site-section-title a {
+    @media #{$not-small} {
+      color: white;
+      font-family: $headline;
+      float: left;
+      clear: both;
+      text-transform: uppercase;
+      font-size: 32px;
+      text-shadow: 1px 1px 1px black;
+    }
+    @media #{$xl} {
+      margin-top: -56px;
+      margin-left: 168px;
+    }
+    @media #{$l} {
+      margin-top: -32px;
+      margin-left: 116px;
+    }
+    @media #{$m} {
+      margin-top: -10px;
+      margin-left: 100px;
+      font-size: 24px;
+    }
+    @media #{$s} {
+      display: none;
+    }
+  }
+  position: relative;
+  z-index: 15; // Needed to keep the header in front of the front page slider
+  @media #{$l} { /* For this layout, the main menu spans the full width, requiring the 
+                    header's height to increase to accomodate it */
+    //height: 186px;
+  }
+  @media #{$m} {
+    //height: 186px;
+  }
+  @media #{$s} {
+    @include box-shadow( 5px 0 10px rgba(0,0,0,0.3) );
+    background: #444;
+    //border-bottom: 2px solid #ccc;
+    height: 60px;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    top: -1px;
+    width: 100%;
+    z-index: 201;
+    padding-left: 0;
+    margin-left: 0;
+    #block-block-66 /* apply button */ {
+      display: none;
+    }
+    .block.user-login-logout {
+      width: 100%;
+      a {
+        background: $berklee-red;
+        width: 100%;
+      }
+    }
+  }
+  /*&:before {
+    border-top: 6px solid #555;
+    background: rgba(0, 0, 0, 0.33);
+    content: '';
+    display: block;
+    height: 35px;
+    position: relative;
+    width: 100%;
+    @media #{$s} {
+      border-top: none;
+      height: 0px;
+      background: black;
+    }
+  }
+  */
+  .container {
+    height: 100%;
+    margin-top: -35px;
+    position: relative;
+    margin-left: 5%;
+    margin-right: 5%;
+    @media #{$s} {
+      margin-top: 0;
+    }
+  }
+  #logo {
+    @include transition(all 0.5s ease);
+    left: 0px;
+    position: absolute;
+    top: 83px;
+    z-index: 980;
+    @media #{$not-small} {
+      margin-top: 1.6em;
+      margin-left: 1.6em;
+    }
+    @media #{$s} {
+      margin-top: 0;
+    }
+    &, img {
+      @media #{$xl} {
+        height: 80px;
+        width: auto;
+      }
+      @media #{$l} {
+        height: 70px;
+        width: auto;
+      }
+      @media #{$m} {
+        height: 60px;
+        width: auto;
+      }
+      @media #{$s} {
+        height: 50px;
+        top: 11px;
+        width: auto;
+      }
+    }
+  }
+  a.apply {
+    @include border-radius(2px);
+    @include text-shadow(-1px 0px 1px #000000);
+    background-color: $berklee-red;
+    color: #DDDDDD;
+    float: right;
+    font-size: 12px;
+    font-family: $headline;
+    line-height: 15px;
+    margin: 5px 10px -2px;
+    padding: 6px 15px 3px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .gray-bar {
+    @include text-shadow(1px 1px 1px rgba(0, 0, 0, 0.5) );
+    color: $light-gray;
+    //float: left;
+    a {
+      color: $light-gray;
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 35px;
+      margin-left: 15px;
+      @media #{$l} {
+        margin-left: 8px;
+      }
+      text-transform: uppercase;
+      &.home-link {
+        font-weight: normal;
+        text-transform: none;
+        font-size: 13px;
+        @media #{$s} {
+          color: white;
+        }
+        &:hover {
+          @media #{$s} {
+            color: white;
+          }
+        }
+      }
+      &:hover {
+        color: white;
+      }
+      @media #{$m} {
+        font-size: 10px;
+        margin-left: 0;
+      }
+      @media #{$s} {
+        @include text-shadow(none);
+        color: #777;
+        cursor: pointer;
+        display: block;
+        font-family: $headline;
+        font-size: 17px;
+        line-height: 57px;
+        line-height: 57px;
+        text-transform: uppercase;
+        margin-left: 0;
+        &:hover {
+          color: #333;
+        }
+        &[href*='/dashboard'] {
+          @include text-shadow(none);
+          font-size: 13px;
+          color: white;
+        }
+      }
+    }
+
+  }
+  .align-left {
+    li {
+      float: left;
+    }
+  }
+  .share-holder {
+    position: absolute;
+    right: 0;
+    bottom: -25px;
+    &.role-3 {
+      @media #{$m} {
+        display: none;
+      }
+    }
+    .fb-like iframe {
+      @include grayscale(1);
+      margin-left: 25px;
+      &:not(.fb_iframe_widget_lift) {
+        opacity: 0.8;
+        width: 50px !important;
+      }
+      .fb_iframe_widget_lift {
+        margin-left: -5px;
+      }
+      &:hover {
+        @include grayscale(0);
+        opacity: 1;
+      }
+      @media #{$s} {
+        display: none;
+      }
+    }
+    .addthis_counter .atc_s, .addthis_counter .addthis_button_expanded {
+      @include grayscale(1);
+      opacity: 0.5;
+      &:hover {
+        @include grayscale(0);
+        opacity: 1;
+      }
+      @media #{$s} {
+        display: none;
+      }
+    }
+  }
+}
+
+.page-user .share-holder {
+  display: none;
+}
+
+// Disable transitions on the share pop-up box. Otherwise it slides across the page on appearance
+#at15s {
+  @include transition(none);
+}
+
+.logged-in .region-header {
+  a.apply {
+    display: none;
+  }
+}

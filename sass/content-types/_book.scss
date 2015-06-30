@@ -1,0 +1,118 @@
+// Book helper styles:
+.block-book-helper {
+  .content {
+  }
+}
+#book-helper-admin-edit {
+  table#book-outline {
+    table-layout: auto;
+    th {
+      text-align: center;
+      &.checkbox {
+        padding-left: 0;
+      }
+    }
+    td input[type="checkbox"] {
+      margin-bottom: 0;
+      margin-left: 0;
+      opacity: 1;
+    }
+  }
+}
+
+.book-navigation {
+  ul {
+    margin-bottom: 5px;
+    padding-top: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px dotted #ccc;
+    a {
+      display: block;
+      padding-bottom: 6px;
+      line-height: 10px;
+      border-bottom: 1px dotted #eee;
+    }
+    li:last-child a {
+      border-bottom: none;
+    }
+    /* not sure I need this:
+    &:before {
+      content: 'Outline';
+      display: block;
+      font-family: $body-bold;
+      font-size: 14px;
+      margin-bottom: 5px;
+      margin-top: -3px;
+    }
+    */
+  }
+  li {
+    font-size: 13px;
+    &:not(:first-child) { margin-top: 5px; }
+    &:first-child { margin-top: 0; }
+    &:not(:last-child) { margin-bottom: 7px; }
+  }
+}
+
+.block-dynamic-book-block > .content > ul.menu > li {
+  padding-left: 0;
+}
+
+.page-links {
+  margin-top: 12px;
+  a {
+    font-size: 13px;
+    font-family: $body-italic;
+  }
+}
+
+a.page-previous {
+  float: left;
+  &:after {
+    //content: ' (Previous)';
+    padding-left: 6px;
+  }
+}
+
+a.page-next {
+  float: right;
+  &:before { 
+    //content: '(Next) ';
+    padding-right: 6px;
+  }
+}
+
+ul.links:not(.inline) {
+  li {
+    display: block;
+  }
+}
+
+ul.links.inline {
+  border: 1px dotted #f1f1f1;
+  border-left: none;
+  border-right: none;
+  clear: both;
+  display: block;
+  width: 100%;
+  li {
+    font-family: $body-italic;
+    font-size: 12px;
+    margin-left: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 0;
+    padding-right: 1em;
+    &:not(.first) {
+      padding-left: 0.7em;
+    }
+    &:not(.last) {
+      border-right: 1px solid #aaa;  
+    }
+    &.book_add_child {
+      //display: none;
+    }  
+  }
+  
+
+}

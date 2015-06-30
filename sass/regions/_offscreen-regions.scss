@@ -1,0 +1,168 @@
+#off-screen {
+  @include transition(all 0.5s ease);
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  &.hidden {
+    background: rgba(0,0,0,0);
+    opacity: 0;
+  }
+  &.visible {
+    background: rgba(0,0,0,0.66);
+    opacity: 1;
+    z-index: 970;
+  }
+
+}
+.region-header.open {
+  #logo {
+    left: 31%;
+  }
+}
+
+#block-block-376 { //main menu button block
+  .contextual-links-wrapper {
+    right: -50px;
+  }
+}
+#off-screen-sidebar {
+  @include box-sizing(border-box);
+  @include transition(all 2s ease);
+  background: #2a2a2a;
+  border-top: 3px solid #555;
+  border-right: 3px solid black;
+  box-shadow: inset 0 0 20px #1a1a1a;
+  float: left;
+  height: 100%;
+  overflow: auto;
+  padding-top: 1em;
+  position: fixed;
+  z-index: 5;
+  opacity: 1;
+  max-width: 0%;
+  top: 0;
+  padding-top: 42px;
+  padding-bottom: 20px;
+  &.closed {
+    -webkit-animation: fadout 0.4s;
+  }
+  &.open {
+    max-width: 30%;
+    opacity: 1;
+    -webkit-animation: fadein 0.4s;
+  }
+  #block-system-main-menu {
+    h3 { display: none }
+  }
+  .dashboard-link:before {
+    @include icon('icon-dashboard', '#eee');
+    margin-right: 7px;
+    font-size: 1.2em;
+    display: inline-block;
+  }
+  h3 {
+    margin-left: 5%;
+    color: rgba(255,242,240,0.9);
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+  }
+  li {
+    display: block;
+    border-bottom: 1px solid #333;
+    border-top: 1px solid #222;
+    @include box-shadow(inset 0 0 10px rgba(0,0,0,0.1) );
+    a {
+      color: rgba(255,242,240,0.75) !important;
+      display: block;
+      padding: 0.5em 1em;
+      border-left: 3px solid transparent;
+      letter-spacing: 0.4px;
+      &:hover {
+        color: white !important;
+        background: #222;
+        text-decoration: none;
+        border-left: 3px solid $berklee-red;
+      }
+      &:hover:before {
+        color: white !important;
+      }
+    }
+  }
+  li ul {
+    display: none;
+  }
+}
+
+body.admin-menu #off-screen-sidebar {
+  padding-top: 72px;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+#off-screen-sidebar, #page {
+  width: 100%;
+  @include transition(all 0.3s ease);
+}
+
+#page.open {
+  max-width: 100%;
+}
+#page.closed {
+  max-width: 70%;
+}
+#page {
+  float: right;
+}
+
+/* Just in case we need to add items to the dashboard that aren't in a menu: */
+.offscreen-sidebar-item {
+  color: rgba(255,242,240,0.75);
+  padding: 0.7em 1em;
+  display: block;
+  border-bottom: 1px solid #333;
+  border-top: 1px solid #222;
+  background: transparent;
+  border-left: 3px solid transparent;
+  letter-spacing: 0.4px;
+  @include box-shadow(inset 0 0 10px rgba(0,0,0,0.1) );
+  &:hover {
+    border-left: 3px solid $berklee-red;
+    text-decoration: none;
+    background: #222;
+    color: white;
+  }
+  &:hover:before {
+    color: white;
+  }
+}
+
+.region-off-screen-overlay {
+  @include transition(all 0.3s ease);
+  max-width: 79%;
+  float: right;
+  nav {
+    display: none;
+  }
+  .block-menu {
+    display: none;
+  }
+}

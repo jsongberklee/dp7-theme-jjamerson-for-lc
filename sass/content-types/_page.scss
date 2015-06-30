@@ -1,0 +1,27 @@
+body.page-node:not(.front) {
+  background: rgb(246, 244, 245);
+  #page-content, .region-sidebar-first, .region-sidebar-second .block {
+    padding: 15px;
+    background: white;
+    @include box-shadow(1px 1px 7px rgba(40,38,37,0.13) );
+    @include border-radius(2px);
+    
+  }
+  .region-sidebar-first {
+    @media #{$s} {
+      margin: 0;
+      @include box-shadow(none);
+    }
+  }
+  .region-sidebar-second .block {
+    background: rgb(252,251,250);
+    //@include box-shadow(2px 2px 5px rgba(40,38,37,0.3) );
+  }
+  #page-content {
+    padding-top: 7px;
+    margin-bottom: 30px;
+  }
+  .region-sidebar-first, .region-sidebar-second {
+    margin-top: 0;
+  }
+}

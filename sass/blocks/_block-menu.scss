@@ -1,0 +1,374 @@
+/* Applies to virtually all menus */
+
+.region-sidebar-first .block-berklee-site-section {
+  @media #{$s} {
+    h3 {
+      display: none;
+    }
+  }  
+}
+
+.region-sidebar-first {
+  .expand-collapse-menu-button {
+    background: #666;
+    border: 2px solid black;
+    border-left: none;
+    border-right: none;
+    color: white;
+    font-family: $headline;
+    font-size: 16px;
+    margin: -5px 0 12px -20px;
+    padding: 12px;
+    position: relative;
+    text-transform: uppercase;
+    width: 109%;
+    z-index: 50;
+    &:after {
+      margin-left: 10px;
+    }
+    &.collapsed {
+      &:before { content: 'Expand '   }
+      &:after  { @include icon('icon-expand-alt') }
+    }
+    &.expanded {
+      &:before { content:' Collapse ' } 
+      &:after  { @include icon('icon-collapse-alt') }
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.menu-item-description { display: none; visibility: hidden; }
+
+.region-sidebar-first .block-berklee-left-menu {
+  h3 {
+    @media (max-width:$l-width - 1px) {
+      display: none;
+    }
+  }
+}
+
+@media #{$s} {
+  .region-sidebar-first .block-menu, .region-sidebar-first .block-berklee-site-section:not(#block-berklee-site-section-breadcrumb) {
+    overflow: hidden;
+    max-height: 0px;
+    position: relative;
+    z-index: 30;
+    @include transform( translate3d(0px, -1000px, 0px) );
+    &.expanded {
+      @include transition(transform .4s ease-in-out);
+      @include transform( translate3d(0px, 0px, 0px) );
+      max-height: 1000px;
+    }
+  }
+}
+.logged-in .mobileMenu a.mobile-apply {
+  display: none;
+}
+.mobileMenu, body.page-node .mobileMenu {
+  //@include transition(transform .4s ease-in-out);
+  //@include transform( translate3d(0px, 1000px, 0px) );
+  background: #424041;
+  display: none;
+  padding: 10px 20px;
+  position: fixed;
+  top: 100%;
+  width: 100%;
+  z-index: 200;
+  &.expanded {
+    position: absolute;
+    //@include transform( translate3d(0px, 0px, 0px) );
+  }
+
+  li {
+    overflow: hidden;
+  }
+  li.expanded, li.collapsed {
+    span {
+      background: #424041;
+      position: relative;
+      z-index: 2;
+      &:after {
+        margin-left: 5px;
+      }
+    }
+  }
+  li.expanded span:after {
+    @include icon('icon-chevron-up');
+  }
+  li.collapsed span:after {
+    @include icon('icon-chevron-down');
+  }
+  li.separator {
+    display: none;
+  }
+  li ul {
+    @include transition(transform .3s ease-in-out, max-height .2s ease-in-out);
+    @include transform( translate3d(0px, 0px, 0px) );
+    overflow: hidden;
+    max-height: 500px;
+
+  }
+  li.collapsed ul {
+    @include transform ( translate3d(0, -500px, 0) );
+    overflow: hidden;
+    max-height: 0;
+    z-index: 1;
+    position: relative;
+  }
+  ul {
+    overflow: hidden;
+  }
+  li ul {
+    margin-left: 0.66em;
+  }
+  a, li.nolink span {
+    color: #aaa;
+    display: block;
+    padding: 7px 0;
+    &.active {
+      color: white;
+      text-decoration: underline;
+      background: #474546;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    &:hover {
+      color: white;
+      text-decoration: none;
+      background: #474546;
+    }
+  }
+  a.mobile-apply {
+    background: $berklee-red;
+    border-radius: 5px;
+    color: white;
+    font-family: $headline;
+    font-size: 13px;
+    position: relative;
+    z-index: 10;
+    padding: 6px 10px;
+    text-align: center;
+    text-shadow: -1px -1px 0px rgba(0,0,0,0.6);
+    text-transform: uppercase;
+  }
+  a.mobile-breadcrumb {
+    font-family: $headline;
+    font-size: 18px;
+    padding: 0;
+    &:before {
+      @include icon('icon-chevron-left');
+      margin-right: 6px;
+    }
+  }
+  .user-login-logout {
+    .content a {
+      padding: 0.5em 0.2em 0.5em 2em;
+      margin-right: -3px;
+      margin-top: 0px;
+      margin-bottom: 0.5em;
+      font-size: 14px;
+      font-family: $headline;
+    }
+  }
+  a.contextual-links-trigger {
+    display: none;
+  }
+  h3 {
+    color: #ccc;
+    font-size: 25px;
+    margin: 10px 0;
+    font-family: $headline;
+  }
+  li {
+    border-top: 1px solid #555;
+  }
+  form.google-cse {
+    padding: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #555;
+  }
+  #choose-campus-menu-mobile {
+    &:not(:first-child) {
+      display: none;
+    }
+  }
+  input[name="search_block_form"] {
+    @include box-sizing(border-box);
+    background: #ccc !important;
+    border-radius: 20px;
+    font-size: 14px;
+    height: 14px;
+    margin-top: 4px;
+    padding: 1em;
+    width: 100%;
+  }
+  input.form-submit {
+    display: block;
+    width: 100%;
+    background: #888;
+    font-size: 1em;
+    color: white;
+    
+  }
+}
+
+.logged-in a.mobile-apply {
+  display: none;
+}
+
+#choose-campus-menu-mobile {
+  display: block;
+  height: 57px;
+  margin-left: 50px;
+  width: 57%;
+  a {
+    color: white;
+    cursor: pointer;
+    line-height: 57px;
+    pointer-events: none;
+    &:after  { 
+      @include icon('icon-expand-alt');
+      margin-left: 10px;
+    }
+    &.expanded:after {
+      @include icon('icon-collapse-alt');
+    }
+  }
+}
+
+.not-logged-in #choose-campus-menu-mobile a {
+  font-size: 23px;
+}
+
+.campus-dropdown { 
+  @include box-shadow(2px 2px 3px rgba(0, 0, 0, 0.3) );
+  background: #444;
+  border-top: none;
+  border: 1px solid #888;
+  left: 56px;
+  padding: 0 20px;
+  position: fixed;
+  top: 57px;
+  z-index: 200;
+  a {
+    border-top: 1px dotted #ccc;
+    color: white;
+  }
+  @include transform ( translate3d(0, -500px, 0) );
+  &.expanded {
+    @include transition(transform .4s ease-in-out);
+    @include transform( translate3d(0px, 0px, 0px) );
+  }
+}
+
+#choose-campus-menu-mobile,
+.campus-dropdown {
+  a {
+    display: block;
+    font-family: $headline;
+    font-size: 14px;
+    line-height: 57px;
+    text-transform: uppercase;
+  }
+}
+
+header a {
+  @media #{$s} {
+    display: block;
+    font-family: $headline;
+    font-size: 17px;
+    line-height: 57px;
+    text-transform: uppercase;
+  }
+}
+
+.header-expand {
+  display: block;
+  height: 57px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20%;
+}
+
+.header-expand-icon {
+  @include border-radius(5px);
+  &:after {
+    @include icon('icon-reorder', #fff);
+    font-size: 19px;
+    left: 10px;
+    position: absolute;
+    top: 4px;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+  background: #bbb;
+  border: 2px solid white;
+  color: transparent;
+  height: 30px;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  width: 40px;
+}
+
+#admin-menu {
+  @media #{$s} {
+    display: none;
+  }
+}
+
+/* A crappy cascade hack to make the Give Now! nav item look like the apply button - by Dave */
+
+.section-203806 .region-sidebar-first .content .first a,
+.section-203806 .region-sidebar-first .content .first a.active,
+.section-203806 .region-sidebar-first .content ul.menu .first a.active:after,
+.section-203806 .region-sidebar-first .content .first a:hover,
+.section-203806 .region-sidebar-first .content ul.menu .first a:hover:after {
+    background-color:#D81118;
+    border-bottom-left-radius:2px;
+    border-bottom-right-radius:2px;
+    border-top-left-radius:2px;
+    border-top-right-radius:2px;
+    content:none;
+    color:#DDDDDD;
+    font-family:Frutiger65Bold, '​ Arial', '​ Helvetica', '​ sans-serif';
+    font-size:12px;
+    height: 6px;
+    line-height:8px;
+    margin:-13px 0 7px 0;
+    padding: 8px;
+    text-align:center;
+    text-shadow:black -1px 0 1px;
+    text-transform:uppercase;
+    width:70px;
+}
+.section-203806 .region-sidebar-first .content .first a:hover {
+  text-decoration: underline;
+}
+
+/* Style unpublished menu items to differentiate them */
+.menu-node-unpublished {
+  color:#999 !important;
+  font-style: italic;
+  &:before {
+    @include icon('icon-eye-slash', '#999');
+    margin-right: 5px;
+  }
+}
+
+/* Style pages visible to anonymous users */
+.region-sidebar-first nav li.locked {
+  a { color: #666; }
+  &:before {
+    @include icon('icon-lock', '#888');
+    margin-right: 2px;
+    margin-top: 4px;
+    float: right;
+  }
+}
